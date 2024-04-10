@@ -1,26 +1,27 @@
 name: eros-chat
 services:
-  server:
-    build: server
-    ports:
-      - 127.0.0.1:3000:3000
-    depends_on:
-      - db
-    environment:
-      HOST: 0.0.0.0
-      DB_HOST: db
-      DB_PASSWORD: password
-      DB_DBNAME: eros-chat
-      DB_USER: you
-      DB_PORT: 5432
-    networks:
-      - server-side
-    volumes:
-      - ./server/package.json:/code/package.json
-      - ./server/tsconfig.json:/code/tsconfig.json
-      - ./server/yarn.lock:/code/yarn.lock
-      - ./server/src:/code/src
-    command: yarn run watch
+  # server:
+  #   build: server
+  #   ports:
+  #     - 127.0.0.1:3000:3000
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     HOST: 0.0.0.0
+  #     DB_HOST: db
+  #     DB_PASSWORD: password
+  #     DB_DBNAME: eros-chat
+  #     DB_USER: you
+  #     DB_PORT: 5432
+  #   networks:
+  #     - server-side
+  #   volumes:
+  #     - ./server/package.json:/code/package.json
+  #     - ./server/tsconfig.json:/code/tsconfig.json
+  #     - ./server/yarn.lock:/code/yarn.lock
+  #     - ./server/src:/code/src
+  #     - ./server/node_modules:/code/node_modules
+  #   command: yarn run watch
   db:
     image: postgres:16.2-alpine
     restart: always

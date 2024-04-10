@@ -12,6 +12,7 @@ EXPOSE $PORT
 COPY package.json package.json
 COPY tsconfig.json tsconfig.json
 COPY yarn.lock yarn.lock
+COPY node_modules node_modules
 
 RUN apk update && apk add bash
 RUN yarn install
